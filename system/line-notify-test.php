@@ -4,9 +4,14 @@ $access_token = "q+wPquCFdGY2ZqRj/BBpS95kouLlO2OdKHjshfccPcMHeC8XALFW/nI6V1/ZKNc
 
 
 
-    $message = array(
+    $messages = array(
         "type" => "text",
         "message" => "Your verfication code is "
+    );
+
+    $param = array(
+        "to" => $user_id,
+        "messages" => $message
     );
 
     $curl = curl_init();
@@ -15,7 +20,7 @@ $access_token = "q+wPquCFdGY2ZqRj/BBpS95kouLlO2OdKHjshfccPcMHeC8XALFW/nI6V1/ZKNc
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "to=".$user_id."&message=".$message,
+        CURLOPT_POSTFIELDS => "to=".$user_id."&messages=".http_build_query($messages),
         CURLOPT_HTTPHEADER => array(
             "content-type: application/json",
             "Authorization: Bearer ".$access_token
