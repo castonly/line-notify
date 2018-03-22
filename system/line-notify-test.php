@@ -37,7 +37,7 @@ $channel_secret = "7596dca412ced79ae5c8b72feda17c52";
         CURLOPT_CUSTOMREQUEST => "POST",
         CURLOPT_POSTFIELDS => $param,
         CURLOPT_HTTPHEADER => array(
-            "content-type: application/json",
+            "Content-Type: application/json",
             "Authorization: Bearer ".$access_token
         ),
     ));
