@@ -25,9 +25,11 @@ $channel_secret = "7596dca412ced79ae5c8b72feda17c52";
     );
 
     $param = array(
-        "to" => $tos,
+        "to" => $user_id,
         "messages" => $messages
     );
+
+    var_dump(json_encode($param));
 
     $curl = curl_init();
     curl_setopt_array($curl, array(
