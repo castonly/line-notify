@@ -34,9 +34,9 @@ if ($response_verify->expires_in > 0) {
     $response_send = json_decode(curl_exec($curl));
     curl_close($curl);
 
-    echo "to=".$user_id."&message=".json_encode($message);
+    // echo "to=".$user_id."&message=".json_encode($message);
 
-    var_dump($response_send);
+    // var_dump($response_send);
 
     if ($response_send) {
 
@@ -69,15 +69,8 @@ if ($response_verify->expires_in > 0) {
 
 }
 
-if (isset($con)) {
-    stop($con);
-}
+echo json_encode($response);
 
-if (isset($method) && $method == __FUNCTION__) {
-    echo json_encode($response);
-} else {
-    return $response["values"];
-}
 unset($response);
 $response = array();
 unset($method);
