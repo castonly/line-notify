@@ -11,7 +11,7 @@ $access_token = "q+wPquCFdGY2ZqRj/BBpS95kouLlO2OdKHjshfccPcMHeC8XALFW/nI6V1/ZKNc
 
     $param = array(
         "to" => $user_id,
-        "messages" => $message
+        "messages" => $messages
     );
 
     $curl = curl_init();
@@ -20,7 +20,7 @@ $access_token = "q+wPquCFdGY2ZqRj/BBpS95kouLlO2OdKHjshfccPcMHeC8XALFW/nI6V1/ZKNc
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "POST",
-        CURLOPT_POSTFIELDS => "to=".$user_id."&messages=".http_build_query($messages),
+        CURLOPT_POSTFIELDS => http_build_query($param),
         CURLOPT_HTTPHEADER => array(
             "content-type: application/json",
             "Authorization: Bearer ".$access_token
