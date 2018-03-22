@@ -15,11 +15,14 @@ if (isset($method) && $method != ""
 	}
 
 	if ($method == "push_message"){
-		line_send_verification_code($_POST["parameters"]);
+		line_send_verification_code($_POST["channel_secret"], $_POST["access_token"], $_POST["user_id"], $_POST["messages"]);
 	}
 }
 
-function push_message($channel_secret, $access_token, $user_id, $message) {
+function push_message($access_token, $user_id, $messages) {
+
+	/* get global: ajax function */
+	global $method;
 
     $parameters = array(
         "to" => $user_id,
@@ -46,9 +49,8 @@ function push_message($channel_secret, $access_token, $user_id, $message) {
 	} else {
 		return $response_send;
 	}
-	unset($response);
-	$response = array();
-	unset($method);
+	unset($response_send);
+	$response_send = array();
 	exit();
 
 }
