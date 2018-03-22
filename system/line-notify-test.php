@@ -20,7 +20,7 @@ $channel_secret = "7596dca412ced79ae5c8b72feda17c52";
     $messages = array(
         array(
             "type" => "text",
-            "message" => "Your verfication code is "
+            "text" => "Your verfication code is "
         )
     );
 
