@@ -70,9 +70,4 @@ if ($response_verify->expires_in > 0) {
 }
 
 echo json_encode($response);
-
-unset($response);
-$response = array();
-unset($method);
-exit();
 ?>
