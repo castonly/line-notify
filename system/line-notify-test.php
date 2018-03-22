@@ -28,6 +28,6 @@ curl_setopt_array($curl, array(
     ),
 ));
 $response_send = json_decode(curl_exec($curl));
-var_dump($response_send);
 curl_close($curl);
+echo $response_send;
 ?>
