@@ -35,6 +35,6 @@
     $response_send = json_decode(curl_exec($curl));
     curl_close($curl);
 
-    echo json_encode($response_send);
+    var_dump($response_send);
 
 ?>
