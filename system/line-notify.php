@@ -45,7 +45,7 @@ function push_message($access_token, $to, $message, $type) {
         CURLOPT_POSTFIELDS => json_encode($parameters),
         CURLOPT_HTTPHEADER => array(
             "Content-Type: application/json",
-            "Authorization: Bearer ".str_replace("+", "", urldecode($access_token))
+            "Authorization: Bearer ".str_replace(" ", "+", urldecode($access_token))
         ),
     ));
     $response_send = json_decode(curl_exec($curl));
