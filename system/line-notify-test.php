@@ -8,11 +8,11 @@ $channel_secret = "7596dca412ced79ae5c8b72feda17c52";
 $messages = array(
     array(
         "type" => "text",
-        "message" => "Your verfication code is "
+        "text" => "Your verfication code is "
     )
 );
 
-$param = array(
+$parameter = array(
     "to" => $user_id,
     "messages" => $messages
 );
@@ -23,7 +23,7 @@ curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => "POST",
-    CURLOPT_POSTFIELDS => $param,
+    CURLOPT_POSTFIELDS => $parameter,
     CURLOPT_HTTPHEADER => array(
         "Content-Type: application/json",
         "Authorization: Bearer ".$access_token
