@@ -27,16 +27,16 @@ function push_message($access_token, $to, $message, $type) {
 	$messages = array(
 		array(
 			"type" => $type,
-			"text" => urldecode($message)
+			"text" => htmlspecialchars_decode($message)
 		)
 	);
 
     $parameters = array(
-        "to" => urldecode($to),
+        "to" => htmlspecialchars_decode($to),
         "messages" => $messages
 	);
 	
-	echo urldecode($access_token);
+	echo htmlspecialchars_decode($access_token);
 
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -47,7 +47,7 @@ function push_message($access_token, $to, $message, $type) {
         CURLOPT_POSTFIELDS => json_encode($parameters),
         CURLOPT_HTTPHEADER => array(
             "Content-Type: application/json",
-            "Authorization: Bearer ".urldecode($access_token)
+            "Authorization: Bearer ".htmlspecialchars_decode($access_token)
         ),
     ));
     $response_send = json_decode(curl_exec($curl));
