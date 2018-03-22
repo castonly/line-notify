@@ -38,36 +38,7 @@ if ($response_verify->expires_in > 0) {
 
     // var_dump($response_send);
 
-    if ($response_send) {
-
-        $response["status"] = true;
-        $response["message"] = translate("Successfully sent Line message");
-        $response["values"] = $parameters;
-
-        unset($parameters);
-        $parameters = array();
-        
-    } else {
-
-        $response["status"] = false;
-        $response["message"] = translate("Unable to send Line message");
-        $response["values"] = $parameters;
-
-        unset($parameters);
-        $parameters = array();
-
-    }
-
-} else {
-
-    $response["status"] = false;
-    $response["message"] = translate("Unable to send Line message");
-    $response["values"] = $parameters;
-
-    unset($parameters);
-    $parameters = array();
+    
 
 }
-
-echo json_encode($response);
 ?>
