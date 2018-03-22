@@ -2,17 +2,7 @@
 $user_id = "U9d9ea40b1b06d2518a9bd6e64e74147d";
 $access_token = "q+wPquCFdGY2ZqRj/BBpS95kouLlO2OdKHjshfccPcMHeC8XALFW/nI6V1/ZKNcz1KehUU6mlOzom9JT0TNGqirxQV3HS/VrVodntXYsMzdozLsfnsahYwbH4oZoeMOj/0U6EVWC/PA64+9l4ZrcOwdB04t89/1O/w1cDnyilFU=";
 
-$curl = curl_init();
-curl_setopt_array($curl, array(
-    CURLOPT_URL => "https://api.line.me/oauth2/v2.1/verify?access_token=".$access_token,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => "GET",
-));
-$response_verify = json_decode(curl_exec($curl));
-curl_close($curl);
 
-if ($response_verify->expires_in > 0) {
 
     $message = array(
         "type" => "text",
@@ -38,7 +28,4 @@ if ($response_verify->expires_in > 0) {
 
     var_dump($response_send);
 
-    
-
-}
 ?>
