@@ -34,7 +34,9 @@ function push_message($access_token, $to, $message, $type) {
     $parameters = array(
         "to" => urldecode($to),
         "messages" => $messages
-    );
+	);
+	
+	echo urldecode($access_token);
 
     $curl = curl_init();
     curl_setopt_array($curl, array(
