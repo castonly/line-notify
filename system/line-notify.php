@@ -26,8 +26,6 @@ function push_message($channel_secret, $access_token, $user_id, $message) {
         "messages" => $messages
     );
 
-    var_dump(json_encode($param));
-
     $curl = curl_init();
     curl_setopt_array($curl, array(
         CURLOPT_URL => "https://api.line.me/v2/bot/message/push",
@@ -42,8 +40,16 @@ function push_message($channel_secret, $access_token, $user_id, $message) {
     ));
     $response_send = json_decode(curl_exec($curl));
 	curl_close($curl);
-	
-	echo $response_send;
+
+	if (isset($method) && $method == __FUNCTION__) {
+		echo json_encode($response_send);
+	} else {
+		return $response_send;
+	}
+	unset($response);
+	$response = array();
+	unset($method);
+	exit();
 
 }
 ?>
